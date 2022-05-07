@@ -33,19 +33,91 @@
         <div class="inputRegistration">
           <div><h2>BOOK NOW</h2></div>
           <div class="layout_add">
-            <label for="fname" style="margin-left: 40px;">Pick The Date: </label>
+            <label for="Pick_a_date" style="margin-left: 40px;">Pick The Date: </label>
             <input class="Left_SideCanlender" onChange="CalenderOnchange_first()" type="date" id="Pick_a_date">
           </div>
-         <form action="">
-            <label for="lname">First name:</label><br>
-            <input type="text" id="lname" name="lname" value=""><br><br>
-            <label for="lname">Second name:</label><br>
-            <input type="text" id="lname" name="lname" value=""><br><br>
-            <label for="lname">Phone:</label><br>
-            <input type="text" id="lname" name="lname" value=""><br><br>
-            <label for="lname">Email:</label><br>
-            <input type="text" id="lname" name="lname" value=""><br><br>
-            <input type="submit" value="Submit">
+         <form>
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" name="lname" value="" required><br><br>
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lname" name="lname" value="" required><br><br>
+            <label for="phone">Phone:</label><br>
+            <input type="tel" id="phone" name="phone" placeholder="0412345678" pattern="[0-9]{10}" required><br><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" value="" required><br><br>
+            <!-- Selector list-->
+            <div class="StartTimeDiv">
+              <label for="StartTime">Start Time: </label>
+              <select id="StartTime" name="StartTime">
+                <option value="7.0">07:00 AM</option>
+                <option value="7.5">07:30 AM</option>
+                <option value="8.0">08:00 AM</option>
+                <option value="8.5">08:30 AM</option>
+                <option value="9.0">09:00 AM</option>
+                <option value="9.5">09:30 AM</option>
+                <option value="10.0">10:00 AM</option>
+                <option value="10.5">10:30 AM</option>
+                <option value="11.0">11:00 AM</option>
+                <option value="11.5">11:30 AM</option>
+                <option value="12.0">12:00 PM</option>
+                <option value="12.5">12:30 PM</option>
+                <option value="13.0">01:00 PM</option>
+                <option value="13.5">01:30 PM</option>
+                <option value="14.0">02:00 PM</option>
+                <option value="14.5">02:30 PM</option>
+                <option value="15.0">03:00 PM</option>
+                <option value="15.5">03:30 PM</option>
+                <option value="16.0">04:00 PM</option>
+                <option value="16.5">04:30 PM</option>
+                <option value="17.0">05:00 PM</option>
+                <option value="17.5">05:30 PM</option>
+                <option value="18.0">06:00 PM</option>
+                <option value="18.5">06:30 PM</option>
+                <option value="19.0">07:00 PM</option>
+                <option value="19.5">07:30 PM</option>
+                <option value="20.0">08:00 PM</option>
+                <option value="20.5">08:30 PM</option>
+                <option value="21.0">09:00 PM</option>
+                <option value="21.5">09:30 PM</option>
+              </select>
+            </div>
+            <!-- Selector list-->
+            <div class="EndTimeDiv" style="margin-left: 5px;;">
+             <label for="EndTime">End Time: </label>
+             <select id="EndTime" name="EndTime">
+              <option value="7.5">07:30 AM</option>
+              <option value="8.0">08:00 AM</option>
+              <option value="8.5">08:30 AM</option>
+              <option value="9.0">09:00 AM</option>
+              <option value="9.5">09:30 AM</option>
+              <option value="10.0">10:00 AM</option>
+              <option value="10.5">10:30 AM</option>
+              <option value="11.0">11:00 AM</option>
+              <option value="11.5">11:30 AM</option>
+              <option value="12.0">12:00 PM</option>
+              <option value="12.5">12:30 PM</option>
+              <option value="13.0">01:00 PM</option>
+              <option value="13.5">01:30 PM</option>
+              <option value="14.0">02:00 PM</option>
+              <option value="14.5">02:30 PM</option>
+              <option value="15.0">03:00 PM</option>
+              <option value="15.5">03:30 PM</option>
+              <option value="16.0">04:00 PM</option>
+              <option value="16.5">04:30 PM</option>
+              <option value="17.0">05:00 PM</option>
+              <option value="17.5">05:30 PM</option>
+              <option value="18.0">06:00 PM</option>
+              <option value="18.5">06:30 PM</option>
+              <option value="19.0">07:00 PM</option>
+              <option value="19.5">07:30 PM</option>
+              <option value="20.0">08:00 PM</option>
+              <option value="20.5">08:30 PM</option>
+              <option value="21.0">09:00 PM</option>
+              <option value="21.5">09:30 PM</option>
+              <option value="22.0">10:00 PM</option>
+             </select>
+            </div>
+            <input style="margin-top: 20px;" type="submit" onclick="getFormData()" value="Submit">
           </form> 
         </div>
         <div>

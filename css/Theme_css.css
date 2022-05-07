@@ -83,7 +83,7 @@ header>div:hover {
 main{
   display: flex;
   flex-direction: row;
-  height: 800px;
+  height: 1000px;
 }
 
 .Main_Content_left
@@ -142,11 +142,26 @@ main{
   margin-bottom: 20px;
 }
 
+
 .inputRegistration input[type=submit]:hover {
   background-color: #45a049;
+
 }
 
-.inputRegistration input[type=text], select {
+
+
+.EndTimeDiv, .StartTimeDiv
+{
+  display: inline;
+}
+.inputRegistration select
+{ 
+  width: 120px;
+  padding: 20px;
+  color: black;
+}
+
+.inputRegistration input[type=text], input[type=tel],input[type=email],select {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -169,7 +184,7 @@ main{
 
 .Main_Content_right
 {
-  margin-top: 70px;
+  margin-top: 100px;
   display: flex;
   flex-direction: column;
   flex:60%;
@@ -271,9 +286,4 @@ th,tr,td
   padding: 5px;
 }
 
-
-td:hover
-{
-background-color: red;
-}
 
