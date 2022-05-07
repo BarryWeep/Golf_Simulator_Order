@@ -11,7 +11,7 @@
     <nav>
       <div class="nav_main">
         <div class="nav_main_left">
-          <img src="img/logo.png" alt="Lakeside_logo" > 
+          <a href="#"><img src="img/logo.png" alt="Lakeside_logo" ></a>
         </div>
         <div class="nav_main_right">
           <form action="Login.html">
@@ -21,21 +21,22 @@
       </div>
     </nav>
     <header>
-        <div><a href="#">Accommdation</a></div>
+        <div><a href="https://www.windanginns.com.au/">
+          Hotel 
+          Accommdation</a></div>
         <div><a href="#">Restaurant</a></div> 
         <div><a href="#">Event</a></div>
         <div><a href="#">Contact us</a></div>
     </header>
-<!-- main Content-->
     <main>
       <div class="Main_Content_left">
         <div class="inputRegistration">
           <div><h2>BOOK NOW</h2></div>
           <div class="layout_add">
             <label for="fname" style="margin-left: 40px;">Pick The Date: </label>
-            <input class="Left_SideCanlender" type="date" onchange="clander_adJust_one()" id="Pick_a_date" min="2018-01-01">
+            <input class="Left_SideCanlender" onChange="CalenderOnchange_first()" type="date" id="Pick_a_date">
           </div>
-         <form  style="margin-top:25px;" action="">
+         <form action="">
             <label for="lname">First name:</label><br>
             <input type="text" id="lname" name="lname" value=""><br><br>
             <label for="lname">Second name:</label><br>
@@ -44,13 +45,6 @@
             <input type="text" id="lname" name="lname" value=""><br><br>
             <label for="lname">Email:</label><br>
             <input type="text" id="lname" name="lname" value=""><br><br>
-            <label for="cars">Choose a car:</label>
-            <select id="cars" name="cars">
-              <option value="volvo">Volvo</option>
-              <option value="saab">Saab</option>
-              <option value="fiat">Fiat</option>
-              <option value="audi">Audi</option>
-            </select>
             <input type="submit" value="Submit">
           </form> 
         </div>
@@ -59,110 +53,28 @@
       </div>
       <div class="Main_Content_right">
         <div class="Right_Top_Selector">
-          <div class="Right_TOP_TOP">
-            <input type="date" class="Right_SideCanlender" id="Pick_a_date_second" onchange="clander_adJust_two()" >
-          </div>
-          <div class="Right_TOP_Bottom">
-            <table>
-              <thead>
-                <tr>
-                  <th>Time</th>
-                  <th>Monday</th>
-                  <th>Tuesday</th>
-                  <th>Wednesday</th>
-                  <th>Thursday</th>
-                  <th>Friday</th>
-                  <th>Saturday</th>
-                  <th>Sunday</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                </tr>
-                <tr>
-                  <td><strong>8:00 AM</strong></td>
-                </tr>
-                <tr>
-                  <td><strong>9:00 AM</strong></td>
-                </tr>
-                <tr>
-                  <td><strong>10:00 AM</strong></td>
-                </tr>         
-                <tr>
-                  <td><strong>11:00 AM</strong></td>
-                </tr>
-                <tr>
-                  <td><strong>12:00 PM</strong></td>
-                </tr>
-                <tr>
-                  <td><strong>1:00 PM</strong></td>
-                </tr>
-                <tr>
-                  <td><strong>2:00 PM</strong></td>
-                </tr>
-                <tr>
-                  <td><strong>3:00 PM</strong></td>
-                </tr>
-                <tr>
-                  <td><strong>4:00 PM</strong></td>
-                </tr>
-                <tr>
-                  <td><strong>5:00 PM</strong></td>
-                </tr>
-                <tr>
-                  <td><strong>6:00 PM</strong></td>
-                </tr>
-                <tr>
-                  <td><strong>7:00 PM</strong></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+            <input type="date" class="Right_SideCanlender" id="Pick_a_date_second" onChange="CalenderOnchange_second()" >
+        </div>
+        <div class="Right_Bot_Selector" id="Right_Bot_Selection">  
         </div>
       </div>
     </main>
     <footer>
       <div>
-        <a href="#!" class="text-white me-4">Copyright © 2022. All rights reserved.</a>
+        <a href="#!" class="text-white me-4">Copyright © 2020. All rights reserved.</a>
     </div>
     <div>
-        <a href="#!" class="text-white me-4"> Terms & Conditions</a>
+        <a href="https://www.windanginns.com.au/terms-conditions/!" class="text-white me-4"> Terms & Conditions</a>
     </div>
     <div>
-      <a href="#!" class="text-white me-4">Covid-19 policy</a>
+      <a href="http://dsensedesign.com/windanginns/wp-content/uploads/2020/09/WINDANGINNS_Covid19-outlines.pdf" class="text-white me-4">Covid-19 policy</a>
     </div>
     <div>
-      Site By : <a href="#!">Barry Wang</a>
+      Site By : <a href="https://www.linkedin.com/in/chencan-wang/">Barry Wang</a>
     </div>
 
     </footer>
-  
-  <script>
 
-  function render()
-  {
-    let trslate =  document.getElementById('Pick_a_date').value = new Date().toISOString().slice(0, 10);
-      document.getElementById('Pick_a_date_second').value = trslate;
-      document.getElementById('Pick_a_date_second').min=trslate;
-      document.getElementById('Pick_a_date').min=trslate;
-  }
-
-
-
-  function clander_adJust_one()
-  {
-    let Thedate = document.getElementById('Pick_a_date').value;
-    document.getElementById('Pick_a_date_second').value = Thedate;
-  }
-
-  function clander_adJust_two()
-  {
-    let Thedate = document.getElementById('Pick_a_date_second').value;
-    document.getElementById('Pick_a_date').value = Thedate;
-  }
-
-  render();
-  </script>
     <script src="js/Theme_js.js"></script>
   </body>
 </html>
