@@ -34,31 +34,16 @@ function getFormData()
     const End_TIme = document.getElementById("EndTime");
     const answertwo = End_TIme.value;
 
-    TheUser.push({        
-    UserId: User_ID,
-    Firstname: fname,
-    Secondname: lname,
-    Phone: Phone,
-    Email: Email,
-    Date: BookDate,
-    StartTime: answerOne,
-    EndTime: answertwo});
-
-    let usersToString = JSON.stringify(TheUser);
-
-    alert(usersToString);
-    localStorage.removeItem("accessKey735");
-    localStorage.setItem("accessKey735", usersToString);
+    inputDataIntoStorage();
 }
-
 
 //view contains all the code that manages Visuals
 
 function Render()
 {
     
-    const d = new Date();
-    the_week_date = d.getDay();
+    const determerWeekday = new Date();
+    the_week_date = determerWeekday.getDay(); // the value decides which weekday
 
     let RetrieverTheUser = localStorage.getItem("accessKey735");
     let reformString = JSON.parse(RetrieverTheUser);
@@ -71,8 +56,21 @@ function Render()
         TheUser= [];
     }
 
-    let trslate =  document.getElementById('Pick_a_date').value = new Date().toISOString().slice(0, 10);
+    //intialize input type = date to today and min past day
+    let today = new Date();
+    var day = today.getDate();
+    var month = today.getMonth() + 1;
+    var year = today.getFullYear();
+
+    if (month <10) month = "0" + month;
+    if (day <10) day = "0" + day;
+
+    let trslate = year + "-" + month + "-" + day;       
+
+     document.getElementById('Pick_a_date').value=trslate;
      document.getElementById('Pick_a_date_second').value = trslate;
+     document.getElementById('Pick_a_date_second').min = trslate;
+     document.getElementById('Pick_a_date').min = trslate;
 
      render_table(the_week_date);
 
@@ -81,6 +79,10 @@ function Render()
 function render_table(PickWeekdate)
 {
  
+    if(increaseTime==22.5){
+        increaseTime=7;
+    }
+
     let table = document.createElement("table");
     let thead = document.createElement("thead");
     let tbody = document.createElement("tbody");
@@ -90,7 +92,7 @@ function render_table(PickWeekdate)
     
     document.getElementById("Right_Bot_Selection").appendChild(table);
 
-
+    ///rendering header
     let row_1 = document.createElement('tr');
     let heading_1 = document.createElement('th');
     heading_1.innerHTML = "Time";
@@ -109,7 +111,7 @@ function render_table(PickWeekdate)
     let heading_8 = document.createElement('th');
     heading_8.innerHTML = "Saturday";
 
-    
+    ///////////render
     row_1.appendChild(heading_1);
     row_1.appendChild(heading_2);
     row_1.appendChild(heading_3);
@@ -125,26 +127,38 @@ function render_table(PickWeekdate)
     for(let row_number = 0; row_number<31;row_number++)
     {
         rowSetter[row_number] = document.createElement('tr');
-        rowSetter[row_number].innerHTML=increaseTime;
         for(let column_number=0; column_number<7; column_number++)
         {
-            if(PickWeekdate==column_number)
+            if(column_number==0)
             {
                 ColumnSetter[column_number] =document.createElement('td');
-                ColumnSetter[column_number].innerHTML = " ";
-                ColumnSetter[column_number].style.background = "blue";
+                ColumnSetter[column_number].innerHTML = increaseTime;
+                ColumnSetter[column_number].style.pointerEvents = "none";
                 rowSetter[row_number].appendChild(ColumnSetter[column_number]);
-
+                
             }
             else
-            {
-                ColumnSetter[column_number] =document.createElement('td');
-                ColumnSetter[column_number].innerHTML = " ";
-                rowSetter[row_number].appendChild(ColumnSetter[column_number]);
+            {   
+                if(PickWeekdate==column_number)
+                {
+                    ColumnSetter[column_number] =document.createElement('td');
+                    ColumnSetter[column_number].innerHTML = " ";
+                    ColumnSetter[column_number].style.background = "blue";
+                    rowSetter[row_number].appendChild(ColumnSetter[column_number]);
+
+
+                }
+                else
+                {
+                    ColumnSetter[column_number] =document.createElement('td');
+                    ColumnSetter[column_number].innerHTML = " ";
+                    rowSetter[row_number].appendChild(ColumnSetter[column_number]);
+
+                }
 
             }
         }
-        tbody.appendChild(rowSetter[row_number]);
+        thead.appendChild(rowSetter[row_number]);
         increaseTime +=0.5;
     }
 
@@ -175,6 +189,25 @@ function CalenderOnchange_second()
 
 
 ///Controller
+
+function inputDataIntoStorage()
+{
+    TheUser.push({        
+        UserId: User_ID,
+        Firstname: fname,
+        Secondname: lname,
+        Phone: Phone,
+        Email: Email,
+        Date: BookDate,
+        StartTime: answerOne,
+        EndTime: answertwo});
+    
+        let usersToString = JSON.stringify(TheUser);
+    
+        alert(usersToString);
+        localStorage.removeItem("accessKey735");
+        localStorage.setItem("accessKey735", usersToString);
+}
 
 
 ////run
